@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
-        body {background-color: lightgreen;}
+        body {background-color: lightyellow;}
         h1 {color: black;}
         h3 {color: darkgoldenrod;}
         th {color: darkslateblue;}
@@ -26,45 +26,43 @@
     <title>Grocery Store</title>
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
+    <div class="container">
+        <div class="jumbotron">
 
-        <h1>JBC Grocery</h1>
-        <h4>New Cosmetic</h4>
-        <form class="navbar-form pull-left" action="#"
-            th:action="@{/cosmform}"
-            th:object="${cosmetic}"
-            method="post">
+            <h1>JBC Grocery</h1>
+            <h4>New Cosmetic</h4>
+            <form class="navbar-form pull-left" action="#"
+                th:action="@{/cosmform}"
+                th:object="${cosmetic}"
+                method="post">
 
+                <input type="hidden" th:field="*{id}" />
+                <input type="text" placeholder="Name" th:field="*{name}" />
+                <span th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}"></span><br />
 
-            <input type="hidden" th:field="*{id}" />
+                <input type="text"  placeholder="Brand" th:field="*{brand}" />
+                <span th:if="${#fields.hasErrors('brand')}"
+                th:errors="*{brand}"></span><br />
 
-            <input type="text" placeholder="Name" th:field="*{name}" />
-            <span th:if="${#fields.hasErrors('name')}"
-              th:errors="*{name}"></span><br />
+                <input type="text"  placeholder="Popularity" th:field="*{popularity}" />
+                <span th:if="${#fields.hasErrors('popularity')}"
+                th:errors="*{popularity}"></span><br />
 
-            <input type="text"  placeholder="Brand" th:field="*{brand}" />
-            <span th:if="${#fields.hasErrors('brand')}"
-              th:errors="*{brand}"></span><br />
+                Price: <input type="number" step="0.01" placeholder="Price" th:field="*{price}" />
+                <span th:if="${#fields.hasErrors('price')}"
+                th:errors="*{price}"></span><br />
 
-            <input type="text"  placeholder="Popularity" th:field="*{popularity}" />
-            <span th:if="${#fields.hasErrors('popularity')}"
-              th:errors="*{popularity}"></span><br />
+                Quantity: <input type="number"  placeholder="Quantity" th:field="*{quantity}" />
+                <span th:if="${#fields.hasErrors('quantity')}"
+                th:errors="*{quantity}"></span><br />
 
-            Price: <input type="number" step="0.01" placeholder="Price" th:field="*{price}" />
-            <span th:if="${#fields.hasErrors('price')}"
-              th:errors="*{price}"></span><br />
+                <button class="btn btn-primary btn-large" type="submit" >Submit</button>
 
-            Quantity: <input type="number"  placeholder="Quantity" th:field="*{quantity}" />
-            <span th:if="${#fields.hasErrors('quantity')}"
-              th:errors="*{quantity}"></span><br />
+            </form>
 
-            <button class="btn btn-primary btn-large" type="submit" >Submit</button>
-
-        </form>
-
+        </div>
     </div>
-</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </html>

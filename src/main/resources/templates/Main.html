@@ -17,7 +17,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <style>
-        body {background-color: lightgreen;}
+        body {background-color: lightyellow;}
         h1 {color: black;}
         h3 {color: darkgoldenrod;}
         th {color: darkslateblue;}
@@ -61,7 +61,7 @@
             </tbody>
         </table>
         <a class="btn btn-primary btn-small" href="/cosmform" role="button">Add new Cosmetic</a>
-
+        <br />
         <h4>Cleaning Items</h4>
 
         <table class="table">
@@ -89,7 +89,7 @@
             </tbody>
         </table>
         <a class="btn btn-primary btn-small" href="/clform" role="button">Add new Cleaning Item</a>
-
+        <br />
         <h4>Snacks</h4>
         <table class="table">
             <thead>
@@ -118,6 +118,7 @@
         </table>
 
         <a class="btn btn-primary btn-small" href="/sform" role="button">Add new Snack</a><br />
+        
         <br />
         <td><span th:inline="text">
         Total value of Items: $[[${Total}]]<br />
