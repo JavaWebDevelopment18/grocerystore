@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        body {background-color: lightgreen;}
+        h1 {color: black;}
+        h3 {color: darkgoldenrod;}
+        th {color: darkslateblue;}
+        td {color: black;}
+        .jumbotron {background-color: lightyellow;}
+    </style>
+    <title>Grocery Store</title>
+</head>
+<body>
+    <h1>JBC Grocery</h1>
+    <h4>New Cleaning</h4>
+    <div class="container">
+        <div class="jumbotron">
+            <form class="navbar-form pull-left" action="#"
+                th:action="@{/clform}"
+                th:object="${cleaningItem}"
+                method="post">
+
+
+                <input type="hidden" th:field="*{id}" />
+                <input type="text" placeholder="Name" th:field="*{name}" />
+                <span th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}"></span><br />
+
+                <input type="text"  placeholder="Strength" th:field="*{strength}" />
+                <span th:if="${#fields.hasErrors('strength')}"
+                th:errors="*{strength}"></span><br />
+
+
+                Price: <input type="number" step="0.01" placeholder="Price" th:field="*{price}" />
+                <span th:if="${#fields.hasErrors('price')}"
+                th:errors="*{price}"></span><br />
+
+                Quantity: <input type="number"  placeholder="Quantity" th:field="*{quantity}" />
+                <span th:if="${#fields.hasErrors('quantity')}"
+                th:errors="*{quantity}"></span><br />
+
+                <button class="btn btn-primary btn-large" type="submit" >Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</html>

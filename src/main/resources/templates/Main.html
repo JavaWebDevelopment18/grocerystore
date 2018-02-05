@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+        body {background-color: lightgreen;}
+        h1 {color: black;}
+        h3 {color: darkgoldenrod;}
+        th {color: darkslateblue;}
+        td {color: black;}
+        .jumbotron {background-color: lightyellow;}
+    </style>
+
+    <title>Grocery Store</title>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+
+        <h1>JBC Grocery</h1>
+
+        <h4>Cosmetics</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Quantity</th>
+                <th scope="col">Name</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Popularity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cosmetic : ${Cosmetics}">
+                <td><span th:text="${cosmetic.quantity}"></span></td>
+                <td><span th:text="${cosmetic.name}"></span></td>
+                <td><span th:text="${cosmetic.brand}"></span></td>
+                <td><span th:text="${cosmetic.popularity}"></span></td>
+                <td><span th:inline="text">
+                    $[[${cosmetic.price}]]
+                </span></td>
+                <td>
+                Place Holder
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-primary btn-small" href="/cosmform" role="button">Add new Cosmetic</a>
+
+        <h4>Cleaning Items</h4>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Quantity</th>
+                <th scope="col">Name</th>
+                <th scope="col">Strength</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cleaningItem : ${CleaningItems}">
+                <td><span th:text="${cleaningItem.quantity}"></span></td>
+                <td><span th:text="${cleaningItem.name}"></span></td>
+                <td><span th:text="${cleaningItem.strength}"></span></td>
+                <td><span th:inline="text">
+                    $[[${cleaningItem.price}]]
+                </span></td>
+                <td>
+                Placeholder
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-primary btn-small" href="/clform" role="button">Add new Cleaning Item</a>
+
+        <h4>Snacks</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Quantity</th>
+                <th scope="col">Name</th>
+                <th scope="col">Crunchiness</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="snack : ${Snacks}">
+                <td><span th:text="${snack.quantity}"></span></td>
+                <td><span th:text="${snack.name}"></span></td>
+                <td><span th:text="${snack.crunchiness}"></span></td>
+                <td><span th:inline="text">
+                    $[[${snack.price}]]
+                </span></td>
+                <td>
+                placeholder
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary btn-small" href="/sform" role="button">Add new Snack</a><br />
+        <br />
+        <td><span th:inline="text">
+        Total value of Items: $[[${Total}]]<br />
+        </span></td>
+    </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</html>
